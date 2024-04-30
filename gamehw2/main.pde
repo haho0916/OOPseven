@@ -1,4 +1,5 @@
 wita newch;
+hb habin;
 void setup() {
   size(800, 600);
   
@@ -8,10 +9,12 @@ void setup() {
   
   // character init
   newch = new wita();
+  habin = new hb();
 }
 
 void draw(){
   newch.render();
+  habin.display();
 }
 
 void keyPressed(){ 
