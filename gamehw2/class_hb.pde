@@ -23,19 +23,23 @@ float x, y, size; // member data
     fill(0); 
     ellipse(x - size * 0.2, y - size * 0.7, size * 0.2, size * 0.2);
     ellipse(x + size * 0.2, y - size * 0.7, size * 0.2, size * 0.2);
+   
+  }
+  
+  // key 입력받아서 위치 조정
+      void move(float dx, float dy) {
+    x += dx;
+    y += dy;
+    
+        //화면밖으로 나가지 않게 코드 작성
+    if(x > width)
+    { 
+      x = 0;
+    }
+    
+    if(y > height)
+    {
+      y = 0;
+    }
   }
 }
-
-  
-  
-
-
-
-
-
-  
-
-
-
- 
- 
