@@ -3,7 +3,7 @@ class wita {
   wita() {
     x = width/2;
     y = height/2;
-    length=50;
+    length=20;
   }
   
   void render()
@@ -22,17 +22,17 @@ class wita {
     stroke(0,0,0);
     for(int i = 0; i < 180; i++){
      fill(0,0,0);
-     circle(cos(i*3.14/180)*7+(x-20),-1 * sin(i*3.14/180)*5+(y-10),10); 
+     circle(cos(i*3.14/180)*7+(x-10),-1 * sin(i*3.14/180)*5+(y-5),3); 
     }
     for(int i = 0; i < 180; i++){
      fill(0,0,0);
-     circle(cos(i*3.14/180)*7+(x+20),-1 * sin(i*3.14/180)*5+(y-10),10); 
+     circle(cos(i*3.14/180)*7+(x+10),-1 * sin(i*3.14/180)*5+(y-5),3);
     } 
     
     //lip
     for(int i = 0; i < 180; i++){
       fill(0,0,0);
-      circle(cos(i*3.14/180)*12+x,sin(i*3.14/180)*5+(y+15),10); 
+      circle(cos(i*3.14/180)*12+x,sin(i*3.14/180)*5+(y+5),5);
     }
    
      //sunleaf_line
