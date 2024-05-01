@@ -51,4 +51,22 @@ class wita {
          line(x+cos(i*3.14/count*2)*length,y+sin(i*3.14/count*2)*length,x+cos((i-0.5+(j*0.01))*3.14/count*2)*(length+10),y+sin((i-0.5+(j*0.01))*3.14/count*2)*(length+10));
        }
   }
+  
+  // key 입력받아서 위치 조정
+      void move(float dx, float dy) {
+    x += dx;
+    y += dy;
+    
+    //화면밖으로 나가지 않게 코드 작성
+    if(x > width)
+    { 
+      x = 0;
+    }
+    
+    if(y > height)
+    {
+      y = 0;
+    }
+    
+      }
 }
