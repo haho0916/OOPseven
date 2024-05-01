@@ -1,8 +1,8 @@
 class hb
 {
-//ㅅㄷㄴㅅ  
-hb() {x = 200; y = 200; size = 100;} // constructor 1
-hb(float s) {x = 200; y = 200; size = s;}  // constructor 2
+  
+hb() {x = width / 4; y = height /3 ; size = 40;} // constructor 1
+hb(float s) {x = width / 4; y = height / 3; size = s;}  // constructor 2
 hb(float l_x, float l_y, float s) { x = l_x; y = l_y; size = s;} // constructor 3 
   
   
@@ -32,14 +32,12 @@ float x, y, size; // member data
     y += dy;
     
         //화면밖으로 나가지 않게 코드 작성
-    if(x > width)
-    { 
-      x = 0;
-    }
+  if (x > width - size / 2) {
+    x = width - size / 2;
+  } else if (x < size / 2) {
+    x = size / 2;
+  }
     
-    if(y > height)
-    {
-      y = 0;
-    }
+    
   }
 }
