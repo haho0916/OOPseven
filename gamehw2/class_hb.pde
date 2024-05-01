@@ -1,6 +1,6 @@
 class hb
 {
-  
+//ㅅㄷㄴㅅ  
 hb() {x = 200; y = 200; size = 100;} // constructor 1
 hb(float s) {x = 200; y = 200; size = s;}  // constructor 2
 hb(float l_x, float l_y, float s) { x = l_x; y = l_y; size = s;} // constructor 3 
