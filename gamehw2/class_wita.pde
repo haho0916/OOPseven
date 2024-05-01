@@ -53,20 +53,12 @@ class wita {
   }
   
   // key 입력받아서 위치 조정
-      void move(float dx, float dy) {
-    x += dx;
-    y += dy;
-    
-    //화면밖으로 나가지 않게 코드 작성
-    if(x > width)
-    { 
-      x = 0;
+     void move(float dx, float dy) {
+    float newX = x + dx;
+
+    // 새로운 위치가 화면 경계를 넘어가지 않도록 처리
+    if (newX >= length && newX <= width - length) {
+      x = newX;
     }
-    
-    if(y > height)
-    {
-      y = 0;
-    }
-    
-      }
+  }
 }
