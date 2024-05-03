@@ -15,6 +15,7 @@ class hb {
     ///////////////
     // functions //
     ///////////////
+    
     // render
     void render() {
         // 캐릭터 몸통
@@ -42,4 +43,5 @@ class hb {
         else if (x < size / 2)
         x = size / 2;    
     }
+  }
 }

@@ -1,45 +1,74 @@
-class hb {
+class wita {
   
     //////////////////
     // constructors //
     //////////////////
-    hb() {x = width / 4; y = height /2 ; size = 40;} // constructor 1
-    hb(float s) {x = width / 4; y = height / 3; size = s;}  // constructor 2
-    hb(float l_x, float l_y, float s) { x = l_x; y = l_y; size = s;} // constructor 3 
+    wita() {
+    x = width/2;
+    y = height/2;
+    length=20;
+    }
   
     ///////////////
     // variables //
     ///////////////
-    float x, y, size;
-  
+    float x, y, length;
+    
     ///////////////
     // functions //
     ///////////////
-    // render
-    void render() {
-        // 캐릭터 몸통
-        fill(0, 0, 255); 
-        ellipse(x, y, size, size * 1.5);
-    
-        // 캐릭터 머리
-        fill(255, 255, 0);
-        ellipse(x, y - size * 0.7, size * 0.8, size * 0.8);
-    
-        // 캐릭터 눈
-        fill(0); 
-        ellipse(x - size * 0.2, y - size * 0.7, size * 0.2, size * 0.2);
-        ellipse(x + size * 0.2, y - size * 0.7, size * 0.2, size * 0.2);
-    }
-
-    // key 입력 받아서 위치 조정 함수
-    void move(float dx, float dy) {
-        x += dx;
-        y += dy;
+    void render(){
+        // outer face
+        fill(255,128,0);
+        stroke(255,128,0);
+        circle(x,y,2*length+10);
         
-        //화면 밖으로 나가지 않게 하는 기능
-        if (x > width - size / 2)
-        x = width - size / 2;
-        else if (x < size / 2)
-        x = size / 2;    
-    }
+        // inner face
+        fill(255,255,0);
+        stroke(255,0,0);
+        circle(x,y,2*length);
+        
+        //eyes
+        stroke(0,0,0);
+        for(int i = 0; i < 180; i++){
+            fill(0,0,0);
+            circle(cos(i*3.14/180)*7+(x-10),-1 * sin(i*3.14/180)*5+(y-5),3); 
+        }
+        for(int i = 0; i < 180; i++){
+            fill(0,0,0);
+            circle(cos(i*3.14/180)*7+(x+10),-1 * sin(i*3.14/180)*5+(y-5),3);
+        } 
+        
+        //lip
+        for(int i = 0; i < 180; i++){
+            fill(0,0,0);
+            circle(cos(i*3.14/180)*12+x,sin(i*3.14/180)*5+(y+5),5);
+        }
+   
+         //sunleaf_line
+        int count = 36;
+        for (int i = 0; i <count; i++){
+            stroke(255,128,0);
+            line(x+cos(i*3.14/count*2)*length,y+sin(i*3.14/count*2)*length,x+cos((i-0.5)*3.14/count*2)*(length+10),y+sin((i-0.5)*3.14/count*2)*(length+10));
+            stroke(255,128,0);
+            line(x+cos(i*3.14/count*2)*length,y+sin(i*3.14/count*2)*length,x+cos((i+0.5)*3.14/count*2)*(length+10),y+sin((i+0.5)*3.14/count*2)*(length+10));
+         }
+   
+        //sunleaf_color
+         for (int i = 0; i <count; i++)
+             for(int j = 0; j < 100; j++){
+                 stroke(153,204,255);
+                 line(x+cos(i*3.14/count*2)*length,y+sin(i*3.14/count*2)*length,x+cos((i-0.5+(j*0.01))*3.14/count*2)*(length+10),y+sin((i-0.5+(j*0.01))*3.14/count*2)*(length+10));
+             }
+     }
+  
+     // key 입력 받아서 위치 조정
+     void move(float dx, float dy) {
+         float newX = x + dx;
+    
+         // 새로운 위치가 화면 경계를 넘어가지 않도록 처리
+         if (newX >= length && newX <= width - length) {
+          x = newX;
+     }
+  }
 }
