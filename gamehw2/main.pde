@@ -21,16 +21,28 @@ void setup() {
 
 void draw(){
   
-  // render objects
+  // render objects //
   background(153,204,255);
   newch.render();
   habin.display();
   for(int i = 0; i < 10; i++)
   obstacles[i].render();
   
-  // update
+  // update //
   for(int i = 0; i < 10; i++)
   obstacles[i].move();
+  // check if they crash
+  for(int i = 0; i < 10; i++){
+    if( (obstacles[i].x >= newch.x && obstacles[i].x+10 <= newch.x + newch.length*2+10) && (obstacles[i].y >= newch.y && obstacles[i].y+10 <= newch.y + newch.length*2+10)){
+      newch.x = -999;
+      newch.y = 999;
+    }
+    if( (obstacles[i].x >= habin.x && obstacles[i].x+10 <= habin.x+habin.size) && (obstacles[i].y >= habin.y && obstacles[i].y+10 <= habin.y+habin.size*1.5) ){
+      habin.x = -999;
+      habin.y = 999;
+    }
+  }
+  
 }
 
 void keyPressed(){ 
