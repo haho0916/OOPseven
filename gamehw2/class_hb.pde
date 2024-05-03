@@ -3,7 +3,7 @@ class hb {
     //////////////////
     // constructors //
     //////////////////
-    hb() {x = width / 4; y = height /2 ; size = 40;} // constructor 1
+    hb() {x = width / 4; y = height-50 ; size = 40;} // constructor 1
     hb(float s) {x = width / 4; y = height / 3; size = s;}  // constructor 2
     hb(float l_x, float l_y, float s) { x = l_x; y = l_y; size = s;} // constructor 3 
   
@@ -15,7 +15,6 @@ class hb {
     ///////////////
     // functions //
     ///////////////
-    
     // render
     void render() {
         // 캐릭터 몸통
@@ -43,5 +42,4 @@ class hb {
         else if (x < size / 2)
         x = size / 2;    
     }
-  }
 }
