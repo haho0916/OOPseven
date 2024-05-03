@@ -4,7 +4,7 @@
 wita newch;
 hb habin;
 obs [] obstacles;
-
+int gamefinish;
 // init
 void setup() {
     // background (sky color) 
@@ -20,6 +20,9 @@ void setup() {
     obstacles = new obs[10];
     for (int i = 0; i < 10; i++) 
         obstacles[i] = new obs((int)random(1,800),(int)random(-600,0));
+        
+    // system variable
+    gamefinish = 0;
 }
 
 // update & render
@@ -39,17 +42,19 @@ void draw(){
     
     // obstacles fall
     for(int i = 0; i < 10; i++)
-        obstacles[i].move();
+        if(gamefinish < 2) obstacles[i].move();
         
     // check if they crash
     for(int i = 0; i < 10; i++){
         if( (obstacles[i].x >= newch.x && obstacles[i].x+10 <= newch.x + newch.length*2+10) && (obstacles[i].y >= newch.y && obstacles[i].y+10 <= newch.y + newch.length*2+10)){
             newch.x = -999;
             newch.y = 999;
+            gamefinish ++;
         }
         if( (obstacles[i].x >= habin.x && obstacles[i].x+10 <= habin.x+habin.size) && (obstacles[i].y >= habin.y && obstacles[i].y+10 <= habin.y+habin.size*1.5) ){
             habin.x = -999;
             habin.y = 999;
+            gamefinish ++;
         }
     }
 }
