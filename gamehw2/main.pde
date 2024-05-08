@@ -46,7 +46,7 @@ void draw(){
         
     // check if they crash
     for(int i = 0; i < 10; i++){
-        if( (obstacles[i].x >= newch.x && obstacles[i].x+10 <= newch.x + newch.length*2+10) && (obstacles[i].y >= newch.y && obstacles[i].y+10 <= newch.y + newch.length*2+10)){
+        if( (obstacles[i].x >= newch.x && obstacles[i].x+10 <= newch.x + newch.size*2+10) && (obstacles[i].y >= newch.y && obstacles[i].y+10 <= newch.y + newch.size*2+10)){
             newch.x = -999;
             newch.y = 999;
             gamefinish ++;
